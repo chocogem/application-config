@@ -1,0 +1,28 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          lower-case-service-id: true
+          enabled: true
+      routes:
+        - id: claim
+          uri: lb://claim-service
+          predicates:
+            - Path=/api/**
+          filters:
+            - RewritePath=/api/(?<segment>.*), /claims/$\{segment}
+        - id: policy
+          uri: lb://policy-service
+          predicates:
+            - Path=/api/**
+          filters:
+            - RewritePath=/api/(?<segment>.*), /policies/$\{segment}
+        - id: customer
+          uri: lb://customer-service
+          predicates:
+            - Path=/api/**
+          filters:
+            - RewritePath=/api/(?<segment>.*), /customes/$\{segment}
+
+management.endpoints.web.exposure.include: '*'
