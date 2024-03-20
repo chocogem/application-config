@@ -1,3 +1,5 @@
 application:
+  basic-auth:
+    ibs-token: ${MY_CAR_IBS_KEY:classpath:ibs-basic-auth.pem}
   endpoints:
     management-uri: https://test.com/management
