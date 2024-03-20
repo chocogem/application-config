@@ -1,0 +1,3 @@
+application:
+  endpoints:
+    management-uri: https://test.com/management
