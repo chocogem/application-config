@@ -1,5 +1,5 @@
 application:
   basic-auth:
-    ibs-token: test
+    ibs-token: Test
   endpoints:
     management-uri: https://test.com/management
